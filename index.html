@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Journal</h1>
+      <p>Write down thoughts, actions, memories, and ideas.</p>
+    </header>
+
+    <div class="popup-overlay active" id="mood-modal" aria-hidden="false">
+      <div class="popup-card">
+        <h2>How are you feeling today?</h2>
+        <p>Select the emotion that best matches your mood before writing.</p>
+
+        <div class="mood-buttons">
+          <button type="button" data-mood="Happy">Happy</button>
+          <button type="button" data-mood="Calm">Calm</button>
+          <button type="button" data-mood="Anxious">Anxious</button>
+          <button type="button" data-mood="Sad">Sad</button>
+          <button type="button" data-mood="Excited">Excited</button>
+          <button type="button" data-mood="Tired">Tired</button>
+        </div>
+
+      </div>
+    </div>
+
+    <section class="editor-panel">
+      <label for="entry-title">Title</label>
+      <input id="entry-title" type="text" placeholder="What are you thinking?" />
+
+      <label for="entry-tags">Tags <span>(comma separated)</span></label>
+      <input id="entry-tags" type="text" placeholder="mood, work, idea" />
+
+      <label for="entry-content">Entry</label>
+      <textarea id="entry-content" rows="10" placeholder="Write your journal entry here..."></textarea>
+
+      <div class="actions">
+        <button id="save-entry">Save Entry</button>
+        <button id="clear-entry" class="secondary">Clear</button>
+      </div>
+    </section>
+
+    <section class="list-panel">
+      <div class="list-header">
+        <h2>Entries</h2>
+        <input id="search-input" type="search" placeholder="Search by text or tags..." />
+      </div>
+      <div id="entries-list" class="entries-list"></div>
+    </section>
+
+    <footer>
+      <button id="export-json" class="secondary">Export JSON</button>
+      <span id="status">Saved in browser storage.</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
